@@ -1,3 +1,6 @@
+
+
+
 function Op(ie, ae, ce) {
     this.fn = ie,
         this.len = ae,
@@ -305,7 +308,7 @@ function encode_msg(ie) {
     //     default:
     //         throw `Unknown msg type: ${ie.constructor}`
     // }
-    ce.uint32(7);
+    ce.uint32(3);
     var unintArrayInfo = encode(ie, ce).finish();
     return Array.from(unintArrayInfo)
 }
@@ -413,7 +416,7 @@ var ie = {
     "value": "{\"token\":\"29b7dde2a34ccb530af5a987f375f6fe\",\"symbols\":[\"OKEX:ETHUSDTPERP\",\"OKEX:BTCUSDTPERP\",\"BINANCE:ETHUSDPERP\",\"HUOBI:ETHUSDPERP\"]}"
 }
 
-// ret = encode_msg(ie)
-//
-// console.log(ret)
-// console.log(Array.from(ret))
+ret = encode_msg(ie)
+
+console.log(ret)
+console.log(Array.from(ret))

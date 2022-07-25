@@ -25,11 +25,11 @@ def main():
     data = {
         "traces": [
             {
-                "ref": 996
+                "ref": 273
             }
         ],
-        "type": "/v6/market/summary/get_summaries_by_symbols",
-        "value": "{\"token\":\"29b7dde2a34ccb530af5a987f375f6fe\",\"symbols\":[\"OKEX:ETHUSDTPERP\",\"OKEX:BTCUSDTPERP\",\"BINANCE:ETHUSDPERP\",\"HUOBI:ETHUSDPERP\"]}"
+        "type": "/v7/market/candle/get_candles_since",
+        "value": "{\"symbol\":\"OKEX:ETHUSDTPERP\",\"symbol_type\":\"kline\",\"timeframe\":\"3m\",\"ts\":1658676600,\"limit\":100,\"price_adjusting_type\":\"pre\",\"vol_adjusting_type\":\"none\",\"token\":\"fc5c37fd7c2e0888804ffd0ea2813223\"}"
     }
     arrayInfo = encode_params(data)
     print(arrayInfo)
@@ -39,7 +39,7 @@ def main():
     time.sleep(2)
     result = ws.recv()
     print(type(result))
-    str2 = str(result, )
+    str2 = str(result)
     print(str2)
     # print("Received '%s'" % str(result))
     time.sleep(4)
