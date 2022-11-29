@@ -1,7 +1,6 @@
 # import xlwt
 import pymongo
 import pandas as pd
-# import xlsxwriter as xw
 
 # 连接mongodb数据库
 client = pymongo.MongoClient("localhost")

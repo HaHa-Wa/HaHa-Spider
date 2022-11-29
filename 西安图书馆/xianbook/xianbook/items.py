@@ -11,7 +11,7 @@ class XianbookItem(Item):
     # name = scrapy.Field()
     pass
 
-
+# 配置字段
 class BookItem(Item):
     bookName = Field()
     loansNum = Field()
