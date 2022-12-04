@@ -5,7 +5,6 @@ from bs4 import BeautifulSoup
 
 
 def get_detail(href, show_date, city):
-    # url = 'http://www.jc.net.cn/net/eprice/material/MaterialAction.do?method=gotoMaterialDetail&pid=40352'
     ret = requests.get(href, headers)
     bs_ret = BeautifulSoup(ret.content.decode(), 'lxml')
     tr_list = bs_ret.find_all('tr', {'class': 'soli_content_tr'})
@@ -16,7 +15,6 @@ def get_detail(href, show_date, city):
         material = tds[2].text.strip()
         unit = tds[3].text.strip()
         unit_price = tds[4].text.strip()
-        # print(name, model, material, unit, unit_price)
         print('类型：', name + model, '日期：', show_date ,'价格：', unit_price)
         if name + model not in content_dict:
             content_dict[name + model] = {"name": name, "model": model, "material": material, "unit": unit,
@@ -54,5 +52,4 @@ if __name__ == '__main__':
 
     # 保存为csv格式
     data.to_csv('data.csv', encoding='utf-8')
-    # get_detail()
-    # print(content_dict)
+
