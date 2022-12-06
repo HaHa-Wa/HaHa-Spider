@@ -1,0 +1,146 @@
+No.,品牌,,总分
+1,苹果,Apple,65.5
+2,H&M,H&M,61.5
+3,溢达,Esquel,61
+4,盖璞,GAP,55.5
+4,C&A,C&A,55.5
+6,惠普,HP,55
+7,微软,Microsoft,53.5
+7,彪马,Puma,53.5
+9,松下,Panasonic,52.5
+10,玛莎百货,M&S,50.5
+11,阿迪达斯,Adidas,49
+12,巴宝莉,Burberry,48.5
+12,西门子,Siemens,48.5
+14,可口可乐,Coca-Cola,47
+15,三星,Samsung,46.5
+16,沃尔玛,Walmart,45.5
+16,耐克,Nike,45.5
+18,Target,Target,45
+18,华为,Huawei,45
+20,优衣库,Uniqlo,43
+20,Esprit,Esprit,43
+22,联合利华,Unilever,41
+23,日立,Hitachi,40
+23,ZARA,ZARA,40
+25,富士康,Foxconn,39.5
+26,李宁,Li-Ning,37.5
+26,李维斯,Levi's,37.5
+28,诺基亚,Nokia,37
+29,东芝,Toshiba,36.5
+30,通用电气,GE,35.5
+31,联想,Lenovo,34.5
+31,飞利浦,Philips,34.5
+33,宜家,IKEA,33.5
+34,雅戈尔,Youngor,32
+34,安·泰勒,Ann Taylor,32
+36,索尼,Sony,31.5
+36,佳能,Canon,31.5
+38,斯道拉恩索,Stora Enso,30
+39,北面,The North Face,28.5
+39,Timberland,Timberland,28.5
+39,Lee Jeans,Lee Jeans,28.5
+42,阿尔卡特,Alcatel,26
+42,沃达丰,Vodafone,26
+44,丰田汽车,Toyota,22.5
+45,花王,KAO,22
+45,王子制纸,Oji Paper,22
+47,美津浓,Mizuno,21
+47,福特汽车,Ford,21
+47,本田汽车,Honda,21
+50,迪斯尼,Disney,20.5
+50,爱生雅,SCA,20.5
+52,奔驰,Mercedes-Benz,19.5
+53,探路者,Toread,19
+54,三洋,Sanyo,18
+55,LG,LG,17.5
+56,思科,Cisco,16.5
+56,戴尔,Dell,16.5
+58,通用汽车,GM,16
+58,百事可乐,Pepsi,16
+60,英特尔,Intel,15
+61,宝洁,P&G,13.5
+61,青岛啤酒,Tsingtao,13.5
+61,立白,Liby,13.5
+64,大众汽车,Volkswagen,13
+65,Lafuma,Lafuma,12.5
+65,Tommy Hilfiger,Tommy Hilfiger,12.5
+65,CK,Calvin Klein,12.5
+65,玛氏,Mars,12.5
+70,百威英博,ABinBev,11.5
+70,国际纸业,International Paper,11.5
+72,嘉士伯,Carlsberg,11
+73,乐购,Tesco,10
+73,长城汽车,Great Wall,10
+73,新加坡电信,Singtel,10
+73,贝纳通,Benetton,10
+73,家乐福,Carrefour,10
+73,爱立信,Ericsson,10
+73,摩托罗拉,Motorola,10
+73,英国电信,BT,10
+73,比亚迪,BYD,10
+73,TCL,TCL,10
+73,宝马,BMW,10
+84,中兴,ZTE,9.5
+84,伊利,Yili,9.5
+86,强生,Johnson&Johnson,8
+86,雀巢,Nestlé,8
+88,喜力,Heineken,7.5
+88,欧莱雅,L'Oréal,7.5
+88,庄臣,SC Johnson,7.5
+91,精工爱普生,Seiko Epson,6.5
+92,统一,Uni-president,5.5
+92,康师傅,Master Kong,5.5
+92,中粮,COFCO,5.5
+92,高露洁-棕榄,Colgate-Palmolive,5.5
+96,现代,Hyundai,5
+96,SABMiller,SABMiller,5
+96,IBM,IBM,5
+96,黑莓,RIM-Blackberry,5
+96,海尔,Haier,5
+96,芬欧汇川,UPM,5
+96,,Sears,5
+103,麦当劳,McDonald's,3
+104,阿玛尼,Armani,2.5
+104,Fifth and Pacific,Fifth and Pacific,2.5
+104,Next,Next,2.5
+104,古驰,GUCCI,2.5
+104,雅芳,AVON,2.5
+104,蒂芙尼,Tiffany,2.5
+111,光明,Brightdairy,2
+111,双汇,Shuanghui,2
+111,蒙牛,Mengniu,2
+114,理文造纸,Lee & Man Paper,1.5
+115,长安汽车,Changan,0
+115,小米,Xiaomi,0
+115,HTC,HTC,0
+115,白猫,Whitecat,0
+115,两面针,LMZ,0
+115,纳爱斯,Nice,0
+115,上海家化,Jahwa,0
+115,燕京啤酒,Yanjing Beer,0
+115,奇瑞,Chery,0
+115,茅台啤酒,Maotai Beer,0
+115,香奈儿,CHANEL,0
+115,蔻驰,COACH,0
+115,新秀丽,SAMSONITE,0
+115,百丽,Belle,0
+115,奥康,Aokang,0
+115,农夫山泉,Nongfu Spring,0
+115,正大,CP,0
+115,HUGO BOSS,HUGO BOSS,0
+115,Abercrombie & Fitch,Abercrombie & Fitch,0
+115,361度,361º,0
+115,卡帕,Kappa,0
+115,Guess,Guess,0
+115,安踏,ANTA,0
+115,Cortefiel,Cortefiel,0
+115,DKNY,DKNY,0
+115,维多利亚的秘密,Victoria's Secret,0
+115,Macy's,Macy's,0
+115,Kmart,Kmart,0
+115,J.C. Penney,J.C. Penney,0
+115,佐丹奴,Giordano,0
+115,美特斯邦威,Meters/bonwe,0
+115,玖龙造纸,Nine Dragons Paper,0
+115,Polo Ralph Lauren,Polo Ralph Lauren,0
