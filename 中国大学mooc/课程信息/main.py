@@ -19,7 +19,11 @@ def get_detail(id, shortName):
     except:
         miaoshu = '-'
     try:
-        dagang = div.find('div', {'class': 'category-content j-cover-overflow'}).text.replace('\xa0', '')
+        mubiao = div.find_all('div', class_='f-richEditorText')[1].text
+    except:
+        mubiao = '-'
+    try:
+        dagang = div.find('div', {'class': 'outline'}).text.replace('\xa0', '')
     except:
         dagang = ''
     try:
@@ -31,11 +35,12 @@ def get_detail(id, shortName):
     except:
         ziliao = ''
     # print('miaoshu', miaoshu)
-    return miaoshu, dagang, yaoqiu, ziliao
+    return miaoshu, dagang, yaoqiu, ziliao, mubiao
 
 
 def time_s(time_str):
-    timeArray = time.localtime(1631660400)
+    print(time_str)
+    timeArray = time.localtime(int(time_str) /1000)
     otherStyleTime = time.strftime("%Y-%m-%d", timeArray)
     return otherStyleTime
 
@@ -63,7 +68,7 @@ def main():
             enrollCount = mocCourseCard['enrollCount']
             startTime = time_s(mocCourseCardDto['termPanel']['startTime'])
             endTime = time_s(mocCourseCardDto['termPanel']['endTime'])
-            jsonContent = time_s(mocCourseCardDto['termPanel']['jsonContent'])
+            jsonContent = mocCourseCardDto['termPanel']['jsonContent']
             course_name = mocCourseCardDto['name']
             id = mocCourseCardDto['id']
             schoolPanel = mocCourseCardDto['schoolPanel']
@@ -75,18 +80,18 @@ def main():
                 mocTagDtos = ''
             lectorPanels = mocCourseCardDto['termPanel']['lectorPanels']
             try:
-                teachers = ''.join([x['realName'] for x in lectorPanels])
+                teachers = '、'.join([x['realName'] for x in lectorPanels])
             except:
                 teachers = ''
             print(course_name)
             # for cours in cours_list:
             # if cours in course_name:
             # if cours in miaoshu:
-            miaoshu, dagang, yaoqiu, ziliao = get_detail(id, shortName)
+            miaoshu, dagang, yaoqiu, ziliao, mubiao = get_detail(id, shortName)
             cours_info.append(
                 [course_name, id, enrollCount, startTime, endTime, jsonContent, scool_name, shortName, mocTagDtos, teachers, miaoshu,
-                 dagang, yaoqiu, ziliao])
-            # break
+                 dagang, yaoqiu, ziliao, mubiao])
+        # break
 
 
 if __name__ == '__main__':
@@ -103,4 +108,4 @@ if __name__ == '__main__':
     }
     main()
     df = pd.DataFrame(cours_info)
-    df.to_excel('课程2.xls')
+    df.to_excel('课程3.xls')
