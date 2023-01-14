@@ -113,7 +113,7 @@ def get_params(page):
     return encText, encSecKey
 
 
-def hotcomments(html, songname, i, pages, total, filepath):
+def hotcomments(html, songname, i, pages, total):
     # 精彩评论
     m = 1
     # 键在字典中则返回True, 否则返回False
@@ -134,7 +134,7 @@ def hotcomments(html, songname, i, pages, total, filepath):
             m += 1
 
 
-def comments(html, songname, i, pages, total, filepath):
+def comments(html, songname, i, pages, total):
     # 全部评论
     j = 1
     for item in html['comments']:
@@ -154,12 +154,9 @@ def comments(html, songname, i, pages, total, filepath):
 
 def main():
     # 歌曲id号
-    songid = 38592976
 
     # 歌曲名字
-    songname = "Dream it possible"
     # 文件存储路径
-    filepath = songname + ".txt"
     page = 1
     params, encSecKey = get_params(page)
 
@@ -172,8 +169,8 @@ def main():
     total = html['total']
     # 总页数
     pages = math.ceil(total / 20)
-    hotcomments(html, songname, page, pages, total, filepath)
-    comments(html, songname, page, pages, total, filepath)
+    hotcomments(html, songname, page, pages, total)
+    comments(html, songname, page, pages, total)
 
     # 开始获取歌曲的全部评论
     page = 2
@@ -182,14 +179,13 @@ def main():
         data = {'params': params, 'encSecKey': encSecKey}
         html = get_comments_json(url, data)
         # 从第二页开始获取评论
-        comments(html, songname, page, pages, total, filepath)
+        comments(html, songname, page, pages, total)
         page += 1
-        if page == 5:
-            break
 
 
 if __name__ == "__main__":
-    songname = "Dream it possible"
+    songname = "爱人错过"
+    songid = 1368754688
 
     all_info = [['姓名', '评论']]
     main()
