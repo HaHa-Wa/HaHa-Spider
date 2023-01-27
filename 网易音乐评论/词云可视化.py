@@ -24,7 +24,7 @@ def read_stopword_file():
 
 # 读取数据
 def read_excel():
-    df = pd.read_excel('test.xlsx')
+    df = pd.read_excel('%s.xlsx'%file_name)
     return df
 
 
@@ -103,6 +103,6 @@ def main():
 
 
 if __name__ == '__main__':
-    file_name = 'Dream it possible'
+    file_name = '孤勇者'
     main()
     read_excel()

@@ -13,7 +13,7 @@ class InterPipeline:
         # TITLE = ['代码', '简称', '板块', '公告标题', '公告时间', '公告ID', 'PDF链接', '公告类型', '文件名']
         self.all_info = []
         # self.ws.append(TITLE)
-        self.file_name = "test.xlsx"
+        self.file_name = "test.csv"
 
     def process_item(self, item, spider):
         # if not item.get('secCode'):
@@ -30,4 +30,4 @@ class InterPipeline:
         # 关闭
         # self.wb.close()
         df = pd.DataFrame(self.all_info)
-        df.to_excel(self.file_name)
+        df.to_csv(self.file_name)

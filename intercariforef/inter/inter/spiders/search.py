@@ -85,8 +85,7 @@ class SearchSpider(scrapy.Spider):
         title_div = res.find('div', class_='col-md-12 boffreinfo-content')
         title_p = title_div.find('p').text.strip()
         title_h1 = title_div.find('h1').text.strip()
-        print(title_p, '-' * 20)
-        print(title_h1, '-' * 20)
+
         cards = res.find('div', id='accordion')
 
         try:
@@ -121,12 +120,12 @@ class SearchSpider(scrapy.Spider):
             collapseOresp = cards.find('div', id='collapseOresp').text.strip()
         except:
             collapseOresp = ''
-        one_info['collapseCertifs'] = collapseCertifs
-        one_info['collapseObjectifs'] = collapseObjectifs
-        one_info['collapseMetiers'] = collapseMetiers
-        one_info['collapseDuree'] = collapseDuree
-        one_info['collapseConditionAcces'] = collapseConditionAcces
-        one_info['collapseLieuReal'] = collapseLieuReal
-        one_info['collapsePeriode'] = collapsePeriode
-        one_info['collapseOresp'] = collapseOresp
+        one_info['collapseCertifs'] = collapseCertifs.replace('\n', '')
+        one_info['collapseObjectifs'] = collapseObjectifs.replace('\n', '')
+        one_info['collapseMetiers'] = collapseMetiers.replace('\n', '')
+        one_info['collapseDuree'] = collapseDuree.replace('\n', '')
+        one_info['collapseConditionAcces'] = collapseConditionAcces.replace('\n', '')
+        one_info['collapseLieuReal'] = collapseLieuReal.replace('\n', '')
+        one_info['collapsePeriode'] = collapsePeriode.replace('\n', '')
+        one_info['collapseOresp'] = collapseOresp.replace('\n', '')
         yield one_info
