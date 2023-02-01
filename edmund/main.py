@@ -6,10 +6,33 @@
 @IDE ：PyCharm
 """
 import re
-
 import requests
 import pandas as pd
+from retrying import retry
 from bs4 import BeautifulSoup
+
+
+@retry(stop_max_attempt_number=10, wait_fixed=2000)
+def get_detail_two(title, productFamilyID):
+    params = (
+        ('productFamilyID', productFamilyID),
+        ('isPreviewMode', 'false'),
+        ('_', '1674808927614'),
+    )
+
+    response = requests.get('https://www.edmundoptics.cn/Catalog/ProductFamily/_Accessories/', headers=headers,
+                            params=params, timeout=5)
+    tables = pd.read_html(response.text)
+    tables_df = tables[0]
+    for info in tables_df.itertuples():
+        try:
+            p_code = info[-3].replace('#', '')
+            price = info[-2][:info[-2].find('数量')].replace(' 索取报', '').replace('RMB ', '').replace(' ', '').replace(',',
+                                                                                                                    '')
+            print(title, productFamilyID, p_code, float(price))
+            all_info.append([title, p_code, float(price)])
+        except:
+            pass
 
 
 def get_detail(title, SchemaId, productFamilyID):
@@ -25,7 +48,11 @@ def get_detail(title, SchemaId, productFamilyID):
     )
     url = 'https://www.edmundoptics.cn/Catalog/ProductFamily/_ProductGrid/'
     response = requests.get(url, headers=headers, params=params)
-    tables = pd.read_html(response.text)
+    try:
+        tables = pd.read_html(response.text)
+    except:
+        get_detail_two(title, productFamilyID)
+        return
     tables_df = tables[0]
     for info in tables_df.itertuples():
         try:
@@ -38,8 +65,9 @@ def get_detail(title, SchemaId, productFamilyID):
             pass
 
 
+@retry(stop_max_attempt_number=10, wait_fixed=2000)
 def get_two(href):
-    ret = requests.get(url=href, headers=headers)
+    ret = requests.get(url=href, headers=headers, timeout=5)
     SchemaId = re.findall(r'SchemaId: (.*?),', ret.text)[0]
     bs_ret = BeautifulSoup(ret.text, 'lxml')
     divs = bs_ret.find_all('div', class_='col-lg-3 col-md-6 col-6 product-family-result')
@@ -76,11 +104,12 @@ def get_megamenu():
             two_href_list.append([two_title, href])
 
         all_category[one_title] = two_href_list
+    # print(all_category)
     sP = ['光学件']
     for category, href_list in all_category.items():
         if category in sP:
             for x in href_list:
-                print(x)
+                # print(x)
                 get_two(x[1])
             # break
         # break
@@ -97,6 +126,10 @@ if __name__ == '__main__':
         'referer': 'https://www.edmundoptics.cn/f/ultrafast-thin-plano-convex-lenses/39517/',
         'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36',
     }
-    get_megamenu()
+    try:
+        get_megamenu()
+    except:
+        print('网络原因，采集失败。。。。')
+    # get_two('https://www.edmundoptics.cn/c/schott/1311/')
     df = pd.DataFrame(all_info)
     df.to_excel('edmund.xlsx')
