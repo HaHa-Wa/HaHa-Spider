@@ -19,12 +19,14 @@ MONGODB_PORT = 27017
 MONGODB_DBNAME = '51job'
 MONGODB_CNAME = 'post'
 
+
 # 请求加密参数
 def get_sign(bb, p_u):
     appsecret = bb.encode('utf-8')  # 秘钥
     data = p_u.encode('utf-8')  # 加密数据
     sign = hmac.new(appsecret, data, digestmod=sha256).hexdigest()
     return sign
+
 
 # 采集信息
 def get_info(code):
@@ -97,7 +99,7 @@ def get_info(code):
             # 将数据插入mongo
             insert_mongo(x)
         # 判断是否采集完毕
-        if len(data) < 500:
+        if len(data) < 5000:
             break
         page += 1
 
